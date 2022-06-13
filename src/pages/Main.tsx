@@ -29,7 +29,7 @@ const Main: FC = (): JSX.Element => {
 
   return (
     <div className="bg-white h-screen w-screen flex justify-center items-center">
-      <div className="px-6 py-3 rounded border w-64">
+      <div className="px-6 py-3  justify-center rounded items-center border w-64">
         <div className="flex flex-col items-center justify-center mb-4">
           <h2 className="text-2xl font-bold">Main</h2>
         </div>
@@ -46,7 +46,7 @@ const Main: FC = (): JSX.Element => {
         {personName && personName?.length > 0 && (
           <PersonsItem items={personName} />
         )}
-        <div>
+        <div className="text-center">
           <Link to={"history"}>History</Link>
         </div>
       </div>

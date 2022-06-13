@@ -15,13 +15,13 @@ const History: FC = (): JSX.Element => {
           {filterName.map((i) => (
             <div
               key={i}
-              className="my-1 py-1 w-full rounded bg-blue-600 text-blue-200"
+              className="my-1 py-1 text-center w-full rounded bg-blue-600 text-blue-200"
             >
               {i}
             </div>
           ))}
         </div>
-        <div>
+        <div className="text-center">
           <Link to={"/"}>Main</Link>
         </div>
       </div>

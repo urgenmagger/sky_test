@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { Link, useParams } from "react-router-dom";
+import DetailsCard from "../components/modules/detailsCard/DetailsCard";
 import { useAppContext } from "../context/AppContext";
 
 const Details: FC = (): JSX.Element => {
@@ -8,7 +9,7 @@ const Details: FC = (): JSX.Element => {
   sessionStorage.setItem(name, name);
 
   const { persons } = useAppContext();
-  const getDetails = persons.filter((item) => item.name === name);
+  const getDetails = persons.filter((item: string) => item.name === name);
 
   return (
     <div className="bg-white h-screen w-screen flex justify-center items-center">
@@ -18,32 +19,9 @@ const Details: FC = (): JSX.Element => {
         </div>
         <div className="flex flex-col my-2">
           <label className="text-xs text-gray-400">{name}</label>
-          {getDetails.map((item) => (
-            <>
-              <div
-                key={item.url}
-                className="text-xs text-red-400 flex justify-between items-center"
-              >
-                Gender: {item.gender}
-              </div>
-              <div className="text-xs text-red-400 flex justify-between items-center">
-                Dob: {item.birth_year}
-              </div>
-              <div className="text-xs text-black-400 flex justify-between items-center">
-                Films:
-              </div>
-              {item.films.map((film) => (
-                <div className="text-xs text-black-400 flex justify-between items-center pl-10 ">
-                  {film}
-                </div>
-              ))}
-              <div className="text-xs text-red-400 flex justify-between items-center">
-                Scin: {item.skin_color}
-              </div>
-            </>
-          ))}
         </div>
-        <div>
+        <DetailsCard items={getDetails} />
+        <div className="text-center">
           <Link to={"/"}>Main</Link>
         </div>
       </div>
